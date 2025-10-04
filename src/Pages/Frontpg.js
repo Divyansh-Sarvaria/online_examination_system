@@ -1,29 +1,36 @@
 import React from "react";
-
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { StdRec } from "./StdRec";
+import { NavBarAdm } from "./NavBarAdm";
 export function Frontpg() {
+  const Navigate = useNavigate();
+  const { state } = useLocation();
+  const { username, password, AdmEmail } = state || "";
   const options = [
     {
       title: "Student Records",
       text: "View and manage student data",
-      link: "/students",
+      link: "/StdRec",
       color: "primary",
     },
     {
       title: "Create New Exam",
       text: "Add a new test or exam",
-      link: "/create-exam",
+      link: "/",
       color: "success",
     },
   ];
 
   return (
     <div className="container-fluid vh-100">
+      
       <div className="row h-100">
         {/* Left side: Info */}
         <div className="col-md-4 d-flex flex-column justify-content-center align-items-center bg-light">
-          <h2>Admin / Teacher Info</h2>
-          <p>Name: John Doe</p>
-          <p>Email: john@example.com</p>
+          <h2>Admin</h2>
+          <p>Name: {username}</p>
+          <p>Email : {AdmEmail}</p>
           <p>Role: Teacher</p>
         </div>
 
@@ -48,6 +55,7 @@ export function Frontpg() {
               <i
                 className="bi bi-arrow-right-circle-fill fs-3 position-absolute"
                 style={{ bottom: "10px", right: "10px", cursor: "pointer" }}
+                onClick={() => Navigate("/StdRec")}
               ></i>{" "}
             </div>
           ))}

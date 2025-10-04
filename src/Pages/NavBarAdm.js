@@ -1,5 +1,6 @@
 import React from "react";
-
+import StdRec from "./StdRec";
+import { Frontpg } from "./Frontpg";
 export function NavBarAdm() {
   return (
     <nav className=" navbar sticky-top navbar-expand-lg navbar-light bg-light py-2">
@@ -20,18 +21,23 @@ export function NavBarAdm() {
         <div className=" navbar-collapse collapse" id="navbarcontents">
           <ul className="navbar-nav mb-auto mb-auto mb-lg-0">
             <li className=" nav-item">
-              <a className=" nav-link active" href="#">
+              <a className=" nav-link active" href="/Frontpg">
                 Home
               </a>
             </li>
             <li className=" nav-item">
-              <a className=" nav-link  " href="#">
+              <a className=" nav-link  " href="/StdRec">
                 Student Records
               </a>
             </li>
             <li className=" nav-item">
               <a className=" nav-link  " href="#">
                 Create New Test
+              </a>
+            </li>
+            <li className=" nav-item">
+              <a className=" nav-link  " href="/">
+                logout
               </a>
             </li>
           </ul>
