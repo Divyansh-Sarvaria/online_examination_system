@@ -15,7 +15,7 @@ export function LoginModal({ role, onClose }) {
     if (role === "Admin") {
       navigate("/Admin", { state: { username, password, AdmEmail } });
     } else {
-      navigate("/Student", {
+      navigate("/StdFrntPage", {
         state: { username, password, studentClass, studentSection },
       });
     }

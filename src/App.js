@@ -5,6 +5,8 @@ import Student from "./Pages/MainPage_Std";
 import Admin from "./Pages/MainPage_adm";
 import StdRec from "./Pages/StdRec";
 import { Frontpg } from "./Pages/Frontpg";
+import CrtExm from "./Pages/CrtExm.";
+import StdFrntPage from "./StdPages/StdFrntPg";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -16,6 +18,9 @@ function App() {
         <Route path="/Admin" element={<Admin />} />
         <Route path="/StdRec" element={<StdRec />} />
         <Route path="/Frontpg" element={<Frontpg />} />
+        <Route path="/CrtExm" element={<CrtExm />} />
+        <Route path="/CrtExm" element={<CrtExm />} />
+        <Route path="/StdFrntPage" element={<StdFrntPage />} />
       </Routes>
     </Router>
   );

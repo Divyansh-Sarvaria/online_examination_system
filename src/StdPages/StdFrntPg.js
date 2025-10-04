@@ -1,22 +1,21 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { StdRec } from "./StdRec";
-import { NavBarAdm } from "./NavBarAdm";
-export function Frontpg() {
-  const Navigate = useNavigate();
+import { useLocation, useNavigate } from "react-router-dom";
+
+export default function StdFrntPage() {
+  const navigate = useNavigate();
   const { state } = useLocation();
-  const { username, password, AdmEmail } = state || "";
+  const { username, studentClass, studentSection } = state || "";
+
   const options = [
     {
-      title: "Student Records",
-      text: "View and manage student data",
+      title: "View Results",
+      text: "Check your exam results",
       link: "/StdRec",
       color: "primary",
     },
     {
-      title: "Create New Exam",
-      text: "Add a new test or exam",
+      title: "Attempt Exam",
+      text: "Take a new test",
       link: "/CrtExm",
       color: "success",
     },
@@ -25,27 +24,29 @@ export function Frontpg() {
   return (
     <div className="container-fluid vh-100">
       <div className="row h-100">
-        {/* Left side: Info */}
+        {/* Left Sidebar: Student Info */}
         <div className="col-md-4 d-flex flex-column justify-content-center align-items-center bg-light">
-          <h2>Admin</h2>
+          <h2>Student</h2>
           <p>Name: {username}</p>
-          <p>Email : {AdmEmail}</p>
-          <p>Role: Teacher</p>
+          <p>Class: {studentClass}</p>
+          <p>Section: {studentSection}</p>
+          <p>Role: Student</p>
         </div>
 
-        {/* Right side: Cards */}
+        {/* Right Side: Cards */}
         <div className="col-md-8 d-flex flex-column justify-content-center align-items-center flex-wrap gap-4">
           {options.map((option, index) => (
             <div
               key={index}
               className={`card text-white bg-${option.color} shadow`}
               style={{
-                width: "100%", // full width inside col
-                maxWidth: "500px", // cap size on large screens
-                minHeight: "180px", // ensures good height
-                cursor: "default",
+                width: "100%",
+                maxWidth: "500px",
+                minHeight: "180px",
+                cursor: "pointer",
+                position: "relative",
               }}
-              onClick={() => (window.location.href = option.link)}
+              onClick={() => navigate(option.link, { state })}
             >
               <div className="card-body">
                 <h5 className="card-title">{option.title}</h5>
@@ -53,9 +54,8 @@ export function Frontpg() {
               </div>
               <i
                 className="bi bi-arrow-right-circle-fill fs-3 position-absolute"
-                style={{ bottom: "10px", right: "10px", cursor: "pointer" }}
-                onClick={() => Navigate("/StdRec")}
-              ></i>{" "}
+                style={{ bottom: "10px", right: "10px" }}
+              ></i>
             </div>
           ))}
         </div>

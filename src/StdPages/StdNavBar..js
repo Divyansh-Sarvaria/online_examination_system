@@ -1,11 +1,9 @@
-import React from "react";
-import StdRec from "./StdRec";
-import { Frontpg } from "./Frontpg";
-export function NavBarAdm() {
+import { useLocation } from "react-router-dom";
+export default function StdNavBar() {
   return (
     <nav className=" navbar sticky-top navbar-expand-lg navbar-light bg-light py-2">
       <div className=" container-fluid">
-        <a className="navbar-brand"> Admin </a>
+        <a className="navbar-brand"> Student </a>
         <button
           className=" navbar-toggler"
           type="button"
@@ -21,18 +19,18 @@ export function NavBarAdm() {
         <div className=" navbar-collapse collapse" id="navbarcontents">
           <ul className="navbar-nav mb-auto mb-auto mb-lg-0">
             <li className=" nav-item">
-              <a className=" nav-link active" href="/Frontpg">
+              <a className=" nav-link active" href="/StdFrntPage">
                 Home
               </a>
             </li>
             <li className=" nav-item">
-              <a className=" nav-link  " href="/StdRec">
-                Student Records
+              <a className=" nav-link  " href="/">
+                Result
               </a>
             </li>
             <li className=" nav-item">
-              <a className=" nav-link  " href="/CrtExm">
-                Create New Test
+              <a className=" nav-link  " href="/">
+                dashboard
               </a>
             </li>
             <li className=" nav-item">
