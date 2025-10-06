@@ -7,6 +7,7 @@ import StdRec from "./Pages/StdRec";
 import { Frontpg } from "./Pages/Frontpg";
 import CrtExm from "./Pages/CrtExm.";
 import StdFrntPage from "./StdPages/StdFrntPg";
+import StdRes from "./StdPages/StdResult";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/CrtExm" element={<CrtExm />} />
         <Route path="/CrtExm" element={<CrtExm />} />
         <Route path="/StdFrntPage" element={<StdFrntPage />} />
+        <Route path="/StdRes" element={<StdRes />} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 export default function StdNavBar() {
   return (
     <nav className=" navbar sticky-top navbar-expand-lg navbar-light bg-light py-2">
@@ -24,13 +23,13 @@ export default function StdNavBar() {
               </a>
             </li>
             <li className=" nav-item">
-              <a className=" nav-link  " href="/">
+              <a className=" nav-link  " href="/StdRes">
                 Result
               </a>
             </li>
             <li className=" nav-item">
               <a className=" nav-link  " href="/">
-                dashboard
+                Exams
               </a>
             </li>
             <li className=" nav-item">

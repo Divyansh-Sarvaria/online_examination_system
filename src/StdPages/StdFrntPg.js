@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import StdNavBar from "./StdNavBar.";
 
 export default function StdFrntPage() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export default function StdFrntPage() {
     {
       title: "View Results",
       text: "Check your exam results",
-      link: "/StdRec",
+      link: "/StdRes",
       color: "primary",
     },
     {
@@ -23,6 +24,7 @@ export default function StdFrntPage() {
 
   return (
     <div className="container-fluid vh-100">
+      <StdNavBar />
       <div className="row h-100">
         {/* Left Sidebar: Student Info */}
         <div className="col-md-4 d-flex flex-column justify-content-center align-items-center bg-light">
