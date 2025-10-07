@@ -17,7 +17,7 @@ export default function StdFrntPage() {
     {
       title: "Attempt Exam",
       text: "Take a new test",
-      link: "/CrtExm",
+      link: "/AtmptExm",
       color: "success",
     },
   ];
