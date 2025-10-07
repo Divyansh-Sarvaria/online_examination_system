@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { LoginModal } from "./LoginModal";
-import { useNavigate } from "react-router-dom";
 
 export function LoginPage() {
   const [activeRole, setActiveRole] = useState(null);

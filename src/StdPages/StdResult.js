@@ -1,9 +1,8 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import StdNavBar from "./StdNavBar.";
 
 export default function StdRes() {
-  const navigate = useNavigate();
   const { state } = useLocation();
   const { username, studentClass, studentSection } = state || {};
 

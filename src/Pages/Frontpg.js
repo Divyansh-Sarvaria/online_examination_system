@@ -1,12 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { StdRec } from "./StdRec";
-import { NavBarAdm } from "./NavBarAdm";
 export function Frontpg() {
   const Navigate = useNavigate();
   const { state } = useLocation();
-  const { username, password, AdmEmail } = state || "";
+  const { username,AdmEmail } = state || "";
   const options = [
     {
       title: "Student Records",
@@ -40,9 +38,9 @@ export function Frontpg() {
               key={index}
               className={`card text-white bg-${option.color} shadow`}
               style={{
-                width: "100%", // full width inside col
-                maxWidth: "500px", // cap size on large screens
-                minHeight: "180px", // ensures good height
+                width: "100%", 
+                maxWidth: "500px", 
+                minHeight: "180px",
                 cursor: "default",
               }}
               onClick={() => (window.location.href = option.link)}

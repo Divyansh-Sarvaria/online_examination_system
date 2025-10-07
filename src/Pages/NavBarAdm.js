@@ -1,11 +1,8 @@
-import React from "react";
-import StdRec from "./StdRec";
-import { Frontpg } from "./Frontpg";
 export function NavBarAdm() {
   return (
     <nav className=" navbar sticky-top navbar-expand-lg navbar-light bg-light py-2">
       <div className=" container-fluid">
-        <a className="navbar-brand"> Admin </a>
+        <h1 className="navbar-brand"> Admin </h1>
         <button
           className=" navbar-toggler"
           type="button"

@@ -2,7 +2,7 @@ export default function StdNavBar() {
   return (
     <nav className=" navbar sticky-top navbar-expand-lg navbar-light bg-light py-2">
       <div className=" container-fluid">
-        <a className="navbar-brand"> Student </a>
+        <h1 className="navbar-brand"> Student </h1>
         <button
           className=" navbar-toggler"
           type="button"
