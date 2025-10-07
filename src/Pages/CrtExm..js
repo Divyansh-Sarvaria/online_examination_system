@@ -4,10 +4,10 @@ import { useState } from "react";
 
 function CrtExm() {
   const { state } = useLocation();
-  const { username, password, AdmEmail } = state || "";
+  const { username, AdmEmail } = state || "";
 
   const [question, setQuestion] = useState("");
-  const [options, setOptions] = useState(["", "", "", ""]); // 4 options
+  const [options, setOptions] = useState(["", "", "", ""]);
   const [correctIndex, setCorrectIndex] = useState(null);
   const [questionsList, setQuestionsList] = useState([]);
 
