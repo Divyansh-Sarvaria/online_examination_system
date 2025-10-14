@@ -24,7 +24,7 @@ export function LoginPage() {
       <div
         className="shadow-lg d-flex flex-column flex-md-row w-100"
         style={{
-          maxWidth: "900px",
+          maxWidth: "1200px",
           borderRadius: "20px",
           overflow: "hidden",
           backgroundColor: "#ffffff",
@@ -40,7 +40,7 @@ export function LoginPage() {
         >
           <h1
             className="text-center"
-            style={{ fontWeight: "700", fontSize: "2rem" }}
+            style={{ fontWeight: 700, fontSize: "2rem" }}
           >
             Online Examination Portal
           </h1>
@@ -48,7 +48,7 @@ export function LoginPage() {
 
         <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center p-4 gap-3">
           <button
-            className="btn btn-light w-75 fs-5 fw-bold"
+            className="btn btn-light w-100 w-sm-75 fs-5 fw-bold"
             style={{
               borderRadius: "50px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
@@ -65,7 +65,7 @@ export function LoginPage() {
           </button>
 
           <button
-            className="btn btn-light w-75 fs-5 fw-bold"
+            className="btn btn-light w-100 w-sm-75 fs-5 fw-bold"
             style={{
               borderRadius: "50px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
