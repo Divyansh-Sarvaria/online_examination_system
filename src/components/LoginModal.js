@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function LoginModal({ role, onClose }) {
@@ -23,12 +22,12 @@ export function LoginModal({ role, onClose }) {
 
   return (
     <div
-      className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+      className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3"
       style={{ background: "rgba(0,0,0,0.5)", zIndex: 1050 }}
     >
       <div
-        className="bg-white rounded-3 shadow p-4"
-        style={{ width: "90%", maxWidth: "420px" }}
+        className="bg-white rounded-3 shadow p-4 w-100"
+        style={{ maxWidth: "420px" }}
       >
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h2 className="h5 mb-0">
@@ -41,71 +40,37 @@ export function LoginModal({ role, onClose }) {
           ></button>
         </div>
 
-        {/* Different layout based on role */}
-        {role === "Admin" ? (
-          <div className="container-fluid">
-            <form onSubmit={handlesubmit}>
-              <div className="mb-3">
-                <label htmlFor="usernameAdmin" className="form-label">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="usernameAdmin"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="emailAdmin" className="form-label">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="emailAdmin"
-                  value={AdmEmail}
-                  onChange={(e) => setAdmEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="PasswordAdmin" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="PasswordAdmin"
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="d-flex justify-content-center">
-                <button className="btn btn-primary w-75" type="submit">
-                  Submit
-                </button>
-              </div>
-            </form>
+        <form onSubmit={handlesubmit}>
+          <div className="mb-3">
+            <label htmlFor={`username${role}`} className="form-label">
+              Username
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id={`username${role}`}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
           </div>
-        ) : (
-          <div className="container-fluid">
-            <form onSubmit={handlesubmit}>
-              <div className="mb-3">
-                <label htmlFor="usernameStudent" className="form-label">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="usernameStudent"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                />
-              </div>
+
+          {role === "Admin" ? (
+            <div className="mb-3">
+              <label htmlFor="emailAdmin" className="form-label">
+                Email
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="emailAdmin"
+                value={AdmEmail}
+                onChange={(e) => setAdmEmail(e.target.value)}
+                required
+              />
+            </div>
+          ) : (
+            <>
               <div className="mb-3">
                 <label htmlFor="studentClass" className="form-label">
                   Class
@@ -125,6 +90,7 @@ export function LoginModal({ role, onClose }) {
                   <option value="3">Class 3</option>
                 </select>
               </div>
+
               <div className="mb-3">
                 <label htmlFor="studentSection" className="form-label">
                   Section
@@ -144,27 +110,29 @@ export function LoginModal({ role, onClose }) {
                   <option value="C">C</option>
                 </select>
               </div>
-              <div className="mb-3">
-                <label htmlFor="PasswordStudent" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="PasswordStudent"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="d-flex justify-content-center">
-                <button className="btn btn-primary w-75" type="submit">
-                  Submit
-                </button>
-              </div>
-            </form>
+            </>
+          )}
+
+          <div className="mb-3">
+            <label htmlFor={`Password${role}`} className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id={`Password${role}`}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
-        )}
+
+          <div className="d-flex justify-content-center">
+            <button className="btn btn-primary w-100 w-md-75" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
