@@ -61,62 +61,100 @@ export default function AtmptExm() {
     <div className="container-fluid p-0">
       <StdNavBar />
 
-      <div className="row vh-100 m-0">
+      <div className="row flex-wrap g-0 min-vh-100">
         {/* Left Student Info Section */}
-        <div className="col-md-3 d-flex flex-column justify-content-center align-items-start bg-light p-4 shadow-sm">
-          <h4 className="mb-3 text-primary">Student Info</h4>
-          <p>
-            <strong>Name:</strong> {username}
-          </p>
-          <p>
-            <strong>Class:</strong> {studentClass}
-          </p>
-          <p>
-            <strong>Section:</strong> {studentSection}
-          </p>
-          <p>
-            <strong>Role:</strong> Student
-          </p>
+        <div
+          className="col-lg-3 col-md-12 d-flex flex-column justify-content-center align-items-center p-4"
+          style={{
+            backgroundImage: `url("/img/lftsec.jpeg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "100vh",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "rgba(255,255,255,0.85)",
+              borderRadius: "10px",
+              padding: "20px",
+              width: "100%",
+              maxWidth: "300px",
+            }}
+          >
+            <h4 className="mb-3 text-primary">Student Info</h4>
+            <p>
+              <strong>Name:</strong> {username}
+            </p>
+            <p>
+              <strong>Class:</strong> {studentClass}
+            </p>
+            <p>
+              <strong>Section:</strong> {studentSection}
+            </p>
+            <p>
+              <strong>Role:</strong> Student
+            </p>
+          </div>
         </div>
 
         {/* Right Exam Section */}
-        <div className="col-md-9 bg-white p-4 overflow-auto">
-          <h3 className="text-center mb-4 fw-semibold">📝 Attempt Exam</h3>
+        <div
+          className="col-lg-9 col-md-12 p-4 overflow-auto d-flex flex-column align-items-center"
+          style={{
+            backgroundImage: "url('/img/rgtsec.jpeg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "100vh",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "rgba(255,255,255,0.85)",
+              borderRadius: "10px",
+              padding: "20px",
+              width: "100%",
+              maxWidth: "900px",
+            }}
+          >
+            <h3 className="text-center mb-4 fw-semibold">📝 Attempt Exam</h3>
 
-          {questions.map((q, index) => (
-            <div key={q.id} className="card mb-3 border-0 shadow-sm">
-              <div className="card-body">
-                <h5 className="card-title fw-semibold">
-                  Q{index + 1}. {q.question}
-                </h5>
-                {q.options.map((opt) => (
-                  <div className="form-check" key={opt}>
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name={`question-${q.id}`}
-                      value={opt}
-                      checked={answers[q.id] === opt}
-                      onChange={() => handleOptionChange(q.id, opt)}
-                    />
-                    <label className="form-check-label">{opt}</label>
-                  </div>
-                ))}
+            {questions.map((q, index) => (
+              <div key={q.id} className="card mb-3 border-0 shadow-sm">
+                <div className="card-body">
+                  <h5 className="card-title fw-semibold">
+                    Q{index + 1}. {q.question}
+                  </h5>
+                  {q.options.map((opt) => (
+                    <div className="form-check" key={opt}>
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name={`question-${q.id}`}
+                        value={opt}
+                        checked={answers[q.id] === opt}
+                        onChange={() => handleOptionChange(q.id, opt)}
+                      />
+                      <label className="form-check-label">{opt}</label>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
-          <div className="text-center">
-            <button className="btn btn-primary px-4" onClick={handleSubmit}>
-              Submit
-            </button>
+            <div className="text-center">
+              <button className="btn btn-primary px-4" onClick={handleSubmit}>
+                Submit
+              </button>
+            </div>
+
+            {score !== null && (
+              <div className="alert alert-info text-center mt-4">
+                You scored <strong>{score}</strong> out of {questions.length}
+              </div>
+            )}
           </div>
-
-          {score !== null && (
-            <div className="alert alert-info text-center mt-4">
-              You scored <strong>{score}</strong> out of {questions.length}
-            </div>
-          )}
         </div>
       </div>
     </div>

@@ -43,11 +43,26 @@ function CrtExm() {
   };
 
   return (
-    <div className="container-fluid vh-100">
+    <div className="container-fluid min-vh-100 p-0">
       <NavBarAdm />
-      <div className="row h-100 w-75">
+      <div className="row g-0 flex-wrap">
         {/* Left side: Info */}
-        <div className="col-md-4 d-flex flex-column justify-content-center align-items-center bg-light">
+        <div
+          className="col-md-4 d-flex flex-column justify-content-center align-items-center bg-light p-4"
+          style={{
+            backgroundColor: "#f9f9f9",
+            backgroundImage: `url("/img/lftsec.jpeg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            minHeight: "100vh",
+            transition: "background 0.3s ease",
+            backgroundPosition: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px",
+          }}
+        >
           <h2>Admin</h2>
           <p>Name: {username}</p>
           <p>Email: {AdmEmail}</p>
@@ -55,73 +70,99 @@ function CrtExm() {
         </div>
 
         {/* Right side: Question input */}
-        <div className="col-md-8 p-4">
-          {/* Question */}
-          <label
-            htmlFor="question"
+        <div
+          className="col-md-8 p-0"
+          style={{
+            backgroundColor: "#f9f9f9",
+            backgroundImage: `url("/img/rgtsec.jpeg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            minHeight: "100vh",
+            transition: "background 0.3s ease",
+            backgroundPosition: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px",
+          }}
+        >
+          <div
             style={{
-              display: "block",
-              marginBottom: "8px",
-              fontWeight: "bold",
+              backgroundColor: "rgba(255,255,255,0.4)", // lighter overlay
+              borderRadius: "10px",
+              padding: "20px",
+              width: "100%",
+              maxWidth: "700px",
             }}
           >
-            Enter your question:
-          </label>
-          <textarea
-            id="question"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            rows={4}
-            style={{
-              width: "100%",
-              padding: "10px",
-              fontSize: "16px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-              resize: "vertical",
-              marginBottom: "15px",
-            }}
-            placeholder="Type your question here..."
-          />
-
-          {/* Options */}
-          {options.map((opt, index) => (
-            <div key={index} className="mb-2 d-flex align-items-center">
-              <input
-                type="text"
-                value={opt}
-                onChange={(e) => handleOptionChange(index, e.target.value)}
-                placeholder={`Option ${index + 1}`}
-                className="form-control me-2"
-              />
-              <label className="mb-0">
-                <input
-                  type="radio"
-                  name="correctOption"
-                  checked={correctIndex === index}
-                  onChange={() => setCorrectIndex(index)}
-                />{" "}
-                Correct
+            {/* Overlay for readability */}
+            <div
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.85)",
+                borderRadius: "10px",
+                padding: "20px",
+                width: "100%",
+                maxWidth: "700px",
+              }}
+            >
+              {/* Question */}
+              <label htmlFor="question" className="form-label fw-bold">
+                Enter your question:
               </label>
-            </div>
-          ))}
+              <textarea
+                id="question"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                rows={4}
+                className="form-control mb-3"
+                placeholder="Type your question here..."
+              />
 
-          {/* Add Question Button */}
-          <button onClick={handleAddQuestion} className="btn btn-success mt-3">
-            Add Question
-          </button>
+              {/* Options */}
+              {options.map((opt, index) => (
+                <div key={index} className="mb-2 d-flex align-items-center">
+                  <input
+                    type="text"
+                    value={opt}
+                    onChange={(e) => handleOptionChange(index, e.target.value)}
+                    placeholder={`Option ${index + 1}`}
+                    className="form-control me-2"
+                  />
+                  <label className="mb-0">
+                    <input
+                      type="radio"
+                      name="correctOption"
+                      checked={correctIndex === index}
+                      onChange={() => setCorrectIndex(index)}
+                    />{" "}
+                    Correct
+                  </label>
+                </div>
+              ))}
 
-          {/* Questions List */}
-          {questionsList.length > 0 && (
-            <div className="mt-4">
-              <h5>Questions Added:</h5>
-              <ul>
-                {questionsList.map((q, idx) => (
-                  <li key={idx}>{q.questionText}</li>
-                ))}
-              </ul>
+              {/* Add Question Button */}
+              <button
+                onClick={handleAddQuestion}
+                className="btn btn-success mt-3 w-100"
+              >
+                Add Question
+              </button>
+
+              {/* Questions List */}
+              {questionsList.length > 0 && (
+                <div className="mt-4">
+                  <h5>Questions Added:</h5>
+                  <ul className="list-group">
+                    {questionsList.map((q, idx) => (
+                      <li key={idx} className="list-group-item">
+                        {q.questionText}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

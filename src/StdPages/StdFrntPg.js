@@ -23,11 +23,19 @@ export default function StdFrntPage() {
   ];
 
   return (
-    <div className="container-fluid vh-100">
+    <div className="container-fluid vh-100 p-0">
       <StdNavBar />
-      <div className="row h-100">
-        {/* Left Sidebar: Student Info */}
-        <div className="col-md-4 d-flex flex-column justify-content-center align-items-center bg-light">
+      <div className="row g-0 vh-100">
+        <div
+          className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center text-center"
+          style={{
+            backgroundImage: `url("/img/lftsec.jpeg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            padding: "20px",
+          }}
+        >
           <h2>Student</h2>
           <p>Name: {username}</p>
           <p>Class: {studentClass}</p>
@@ -35,14 +43,20 @@ export default function StdFrntPage() {
           <p>Role: Student</p>
         </div>
 
-        {/* Right Side: Cards */}
-        <div className="col-md-8 d-flex flex-column justify-content-center align-items-center flex-wrap gap-4">
+        <div
+          className="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center flex-wrap gap-4 p-3"
+          style={{
+            backgroundImage: "url('/img/rgtsec.jpeg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           {options.map((option, index) => (
             <div
               key={index}
-              className={`card text-white bg-${option.color} shadow`}
+              className={`card text-white bg-${option.color} shadow w-100`}
               style={{
-                width: "100%",
                 maxWidth: "500px",
                 minHeight: "180px",
                 cursor: "pointer",

@@ -16,12 +16,19 @@ export default function StdRes() {
   ];
 
   return (
-    <div className="container-fluid vh-100">
+    <div className="container-fluid vh-100 p-0">
       <StdNavBar />
 
-      <div className="row vh-100">
-        {/* Left panel */}
-        <div className="col-md-3 d-flex flex-column justify-content-center align-items-start bg-light p-4 shadow-sm">
+      <div className="row g-0 vh-100">
+        <div
+          className="col-12 col-md-3 d-flex flex-column justify-content-center align-items-center text-center p-4"
+          style={{
+            backgroundImage: `url("/img/lftsec.jpeg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <h2 className="mb-3">Student Info</h2>
           <p>
             <strong>Name:</strong> {username}
@@ -37,11 +44,18 @@ export default function StdRes() {
           </p>
         </div>
 
-        {/* Right content: Subjects */}
-        <div className="col-md-9 overflow-auto py-4">
+        <div
+          className="col-12 col-md-9 overflow-auto py-4"
+          style={{
+            backgroundImage: "url('/img/rgtsec.jpeg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <h2 className="text-center mb-4">Subjects Result</h2>
 
-          <div className="row g-3 px-3">
+          <div className="row g-3 px-2 px-sm-3">
             {subjects.map((sub, index) => {
               let color = "success";
               if (sub.percentage < 50) color = "danger";
@@ -55,7 +69,6 @@ export default function StdRes() {
                       <p className="card-text">
                         Percentage: <strong>{sub.percentage}%</strong>
                       </p>
-
                       <div className="progress">
                         <div
                           className={`progress-bar bg-${color}`}
